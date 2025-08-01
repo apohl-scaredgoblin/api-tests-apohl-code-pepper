@@ -1,4 +1,8 @@
 {
+  "name": "api-tests-apohl-code-pepper",
+  "version": "1.0.0",
+  "description": "API tests in Cypress/Typescript for Code & Pepper",
+  "main": "index.js",
   "devDependencies": {
     "@types/cypress": "^1.1.6",
     "@types/node": "^24.1.0",
