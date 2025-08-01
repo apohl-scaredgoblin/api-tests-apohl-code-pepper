@@ -14,8 +14,5 @@ export interface Booking {
 }
 export
 interface MyApiResponse {
-    status: number;
-    body: {
-        token: string;
-    };
+    token: string;
 }

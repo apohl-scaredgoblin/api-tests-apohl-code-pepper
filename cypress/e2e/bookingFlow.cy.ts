@@ -1,3 +1,4 @@
+import {Booking} from '../support/types';
 import { generateBookingData } from '../support/utils';
 import { getAuthToken } from '../support/auth';
 
@@ -34,7 +35,7 @@ describe('Restful Booker API - Booking, update, delete', () => {
             const bookingId = res.body.bookingid;
             createdBookings.push(bookingId);
 
-            cy.apiRequest('GET', `${baseUrl}/booking/${bookingId}`).then((getRes) => {
+            cy.apiRequest<Booking>('GET', `${baseUrl}/booking/${bookingId}`).then((getRes) => {
                 expect(getRes.status).to.eq(200);
                 expect(getRes.body).to.deep.equal(bookingData);
             });
@@ -49,7 +50,7 @@ describe('Restful Booker API - Booking, update, delete', () => {
             const bookingId = res.body.bookingid;
             createdBookings.push(bookingId);
 
-            cy.apiRequest('PATCH', `${baseUrl}/booking/${bookingId}`, updatedData, {
+            cy.apiRequest<Booking>('PATCH', `${baseUrl}/booking/${bookingId}`, updatedData, {
                 Cookie: `token=${token}`
             }).then((updateRes) => {
                 expect(updateRes.status).to.eq(200);
